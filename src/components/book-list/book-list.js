@@ -11,16 +11,18 @@ import './book-list.css';
 class BookList extends Component {
 
   componentDidMount() {
+    // 1. receive data
     const { bookstoreService } = this.props;
     const data = bookstoreService.getBooks();
 
+    // 2. dispacth action to store
     this.props.booksLoaded(data);
   }
 
   render() {
     const { books } = this.props;
     return (
-      <ul>
+      <ul className="book-list">
         {
           books.map((book) => {
             return (
